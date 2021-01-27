@@ -1,0 +1,1 @@
+Simple product manager web app. Users are able to add products with information such as product name, code, price, quantity, and location. Users must sign in to use app, and only admins are able to create new accounts.
