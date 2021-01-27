@@ -1,0 +1,16 @@
+{% extends "inventory_manager/base.html" %}
+{% block content %}
+    <div class="container p-3 my-3 bg-white" style="width: 700px;">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Delete Product</legend>
+                <h2>Are you sure you want to delete the product "{{ object.name }}"</h2>
+            </fieldset>
+            <div class="form-group pt-3">
+                <button class="btn btn-outline-danger" type="submit">Yes, Delete</button>
+                <a class="btn btn-outline-secondary" href="{% url 'list-detail' object.id %}" type="submit">Cancel</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

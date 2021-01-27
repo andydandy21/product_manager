@@ -1,0 +1,32 @@
+{% extends "inventory_manager/base.html" %}
+{% block content %}
+    <h1 class="text-center p-4">Inventory</h1>
+        <article class="container p-3 my-3 bg-white" style="width: 700px">
+            <div class="d-flex">
+                <h3 class="nav-link ms-4" style="color: rgb(0, 110, 255);">{{ object.name }}</h3>
+                <p class="pt-4">({{ object.code }})</p>
+                <small class="pt-4 ms-auto me-5">Location: {{ object.location }}</small>
+            </div>
+            <hr>
+            <div>
+                <table class="table table-hover mx-auto text-center" style="width: 500px;">
+                    <tbody>
+                        <tr>
+                            <td class="col-6">Price</td>
+                            <td>{{ object.price }}</td>
+                        </tr>
+                        <tr>
+                            <td>Quantity</td>
+                            <td>{{ object.quantity }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-flex">
+                <a class="btn btn-secondary btn-sm ms-2" href="{% url 'list-update' object.id %}">Update</a>
+                <a class="btn btn-danger btn-sm ms-2" href="{% url 'list-delete' object.id %}">Delete</a>
+                <small class="text-muted ms-auto ">Last Updated: {{ object.updated|date:"F d, Y" }} at {{ object.updated|date:"f a" }}</small>
+            </div>
+        </article>
+
+{% endblock content %}
